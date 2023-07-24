@@ -1,6 +1,7 @@
 .t {
  font-family:'游明朝';
  font-size:50px;
- height: 300px;
+ height: 150px;
+ text-align:center;
  background-color: rgb(96, 218, 255);
 }
