@@ -7,6 +7,7 @@ ws.onmessage = function(evt){
  if (commentdata.auth == 'OK') {
   return //OK jsonが来るのでここで関数を抜けます
  };
+ console.log(commentdata)
  document.getElementById('comment').innerHTML = commentdata;
 };
 function click(){
