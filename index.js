@@ -15,6 +15,6 @@ ws.onmessage = function(evt) {
 
 function click() {
   var txt = document.getElementById('box').value;
-  ws.send('{"to":"saber@1471", "msg":"' + txt + '"}');
-  console.log("コメント送信：" + txt);
+  ws.send('{"to":"saber@1471","msg":"text"}');
+  console.log("i");
 };
