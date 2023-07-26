@@ -4,5 +4,5 @@ ws.onopen = function(evt){
 };
 ws.onmessage = function(evt){
  var str = evt.data;
+ document.getElementById('comment').innerHTML = str;
 };
-document.getElementById('comment').innerHTML = str;
