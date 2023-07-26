@@ -10,11 +10,13 @@ ws.onmessage = function(evt) {
     return; // OK jsonが来るのでここで関数を抜けます
   }
   console.log(commentdata);
-  document.getElementById('comment').innerHTML = commentdata.msg;
+  document.getElementById('comment').innerHTML = commentdata ;
 };
 
 function click() {
   var txt = document.getElementById('box').value;
-  ws.send('{"to":"saber@1471","msg":"text"}');
-  console.log("i");
+  ws.onopen = function(evt) {
+   ws.send('{"to":"saber@1471","msg":"text"}');
+  };
+   console.log("i");
 };
