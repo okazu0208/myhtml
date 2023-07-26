@@ -1,3 +1,3 @@
 // index.js
-var str = "<p>.innerHTMLで変数渡し！</p>";
+var str = "innerHTMLで変数渡し";
 document.getElementById('comment').innerHTML = str;
