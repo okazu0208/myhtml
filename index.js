@@ -13,6 +13,7 @@ ws.onmessage = function(evt){
 function click(){
  txt = document.getElementById(box).value;
  ws.onopen = function(evt){
-    ws.send('{"to":"saber@1471", "msg":"test"}'); 
+ ws.send('{"to":"saber@1471", "msg":"test"}'); 
+ console.log("iiiiiiiii")
  };
 };
