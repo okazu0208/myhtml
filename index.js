@@ -9,3 +9,9 @@ ws.onmessage = function(evt){
  };
  document.getElementById('comment').innerHTML = commentdata;
 };
+function click(){
+ txt = document.getElementById(box).value;
+ ws.onopen = function(evt){
+    ws.send('{"to":"saber@1471", "msg":"test"}'); 
+ };
+};
