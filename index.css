@@ -8,3 +8,8 @@
 body {
     background-color: rgb(255, 255, 255);
 }
+input {
+    border-top: none;
+    border-right: none;
+    border-left: none;
+}
