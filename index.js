@@ -1,2 +1,2 @@
-var str = ".textContent<br>で<br>変数渡し！";
-commentElement.textContent = str;
+var str = ".innerHTMLで変数渡し！";
+document.getElementById('edit_area').innerHTML = str ;
