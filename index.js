@@ -4,7 +4,7 @@ ws.onopen = function(evt){
 };
 ws.onmessage = function(evt){
  var str = JSON.parse(evt.data);
- if (json.auth == 'OK') {
+ if (str.auth == 'OK') {
   return
  };
  document.getElementById('comment').innerHTML = str;
