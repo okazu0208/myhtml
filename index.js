@@ -1,13 +1,14 @@
 function click() {
   axios({
     method: 'post',
-    url: 'https://api.dropboxapi.com/2/files/create_folder_v2',
-    data: JSON.stringify({
-      "path": "作成するフォルダのパス",
-      "autorename": false}), //autorenameについて：下記参照
+    url: 'https://content.dropboxapi.com/2/files/upload',
+    data: 'このテキストがアップロードされます',  //アップロードするテキスト
     headers: {
-      'Authorization': 'Bearer メモしたアクセストークン',
-      'Content-Type': 'application/json'
+      'Authorization': 'sl.Bi8Xbj2x0VE6j_vibbKcwyjJXjIiUL4x3wzzaCZpHBD6QCXgNMHeRoiGkxQJeU-1UF73ywt6IqRFmJ2jzC7BTRIdGW21ZHRhZkN3sp1Wac8UIQCHGJeI1gPhHk9KkseYHKPsp28kcedK',
+      'Content-Type': 'application/octet-stream',
+      'Dropbox-API-Arg': JSON.stringify({
+        "path": "/Upload.txt", //アップロード時のファイルパス
+        "mode": "overwrite"}) //モード(下記参照)
     }
   })
   .then(response => {
