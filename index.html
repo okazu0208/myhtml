@@ -1,13 +1,25 @@
 <!DOCTYPE html>
 <head>
- <link rel="stylesheet" href="index.css">
- <link href="https://fonts.googleapis.com/css2?family=Kiwi+Maru:wght@500&display=swap" rel="stylesheet">
- <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <title>Pusher Test</title>
+  <script src="https://js.pusher.com/8.2.0/pusher.min.js"></script>
+  <script>
+
+    // Enable pusher logging - don't include this in production
+    Pusher.logToConsole = true;
+
+    var pusher = new Pusher('5c79a538be329c027f05', {
+      cluster: 'ap3'
+    });
+
+    var channel = pusher.subscribe('my-channel');
+    channel.bind('my-event', function(data) {
+      let text = document.getElementById('test').innerHTML;
+      document.getElementById('test').innerHTML = JSON.stringify(data);
+    });
+  </script>
 </head>
 <body>
- <div class="t">prgm blogを作ろう</div>
- <div id="comment"></div>
- <input id="box"  type="text" placeholder="コメント"> 
- <input id="button" type="button" value="ボタンを押す" onclick="click()">
- <script src="index.js"></script>
+  <h1>Pusher Test</h1>
+  <p id="test">
+  </p>
 </body>
