@@ -1,4 +1,5 @@
 <?php
+phpinfo();
 if (isset($_POST['posh'])) {
  $txt = $_GET["text"];
  require __DIR__ . '/vendor/autoload.php';
@@ -14,5 +15,5 @@ if (isset($_POST['posh'])) {
  );
  $data['message'] = $txt;
  $pusher->trigger('my-channel', 'my-event', $data);
- };
+};
 ?>
