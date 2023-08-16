@@ -1,25 +1,15 @@
 <!DOCTYPE html>
 <head>
-  <title>Pusher Test</title>
-  <script src="https://js.pusher.com/8.2.0/pusher.min.js"></script>
-  <script>
-
-    // Enable pusher logging - don't include this in production
-    Pusher.logToConsole = true;
-
-    var pusher = new Pusher('5c79a538be329c027f05', {
-      cluster: 'ap3'
-    });
-
-    var channel = pusher.subscribe('my-channel');
-    channel.bind('my-event', function(data) {
-      let text = document.getElementById('test').innerHTML;
-      document.getElementById('test').innerHTML = JSON.stringify(data);
-    });
-  </script>
+ <title>Pusher Test</title>
+ <script src="https://js.pusher.com/8.2.0/pusher.min.js"></script>
+ <script src="index.js"></script>
 </head>
 <body>
+ <form action="index.php" method="post">
   <h1>Pusher Test</h1>
   <p id="test">
   </p>
+  <input type="text" name="name" size="30">
+  <button type="submit" name="posh">送信</button>
+ </form>
 </body>
