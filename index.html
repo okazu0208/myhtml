@@ -1,15 +1,20 @@
 <!DOCTYPE html>
 <head>
  <title>Pusher Test</title>
+ <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+ <script defer src="https://pyscript.net/latest/pyscript.js"></script>
  <script src="https://js.pusher.com/8.2.0/pusher.min.js"></script>
  <script src="index.js"></script>
 </head>
 <body>
- <form action="index.php" method="post">
-  <h1>Pusher Test</h1>
-  <p id="test">
-  </p>
-  <input type="text" name="text" size="30">
-  <button type="submit" name="posh">送信</button>
- </form>
+ <py-config>
+  [[fetch]]
+  files = ["./index.py"]
+  packeges = ["pusher"]
+ </py-config>
+ <py-script src="./index.py"></py-script>
+ <h1>Pusher Test</h1>
+ <p id="test"></p>
+ <input class="py-input" type="text" id="text"/>
+ <button class="py-button" type="submit" py-click="click()">送信</button>
 </body>
