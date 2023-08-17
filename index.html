@@ -7,14 +7,10 @@
  <script src="index.js"></script>
 </head>
 <body>
- <py-config>
-  [[fetch]]
-  files = ["./index.py"]
-  packeges = ["pusher"]
- </py-config>
- <py-script src="./index.py"></py-script>
- <h1>Pusher Test</h1>
- <p id="test"></p>
- <input class="py-input" type="text" id="text"/>
- <button class="py-button" type="submit" py-click="click()">送信</button>
+ <form action="index.php" method="post">
+  <h1>Pusher Test</h1>
+  <p id="test"></p>
+  <input type="text" name="txt" size="30">
+  <input type="button" value="送信" onclick="click()"/>
+ </form>
 </body>
