@@ -9,11 +9,11 @@ channel.bind('my-event', function(data) {
 });
 function click() {
  var xhr = new XMLHttpRequest();
- xhr.open("GET", "index.py?value=" + txt.value, true);
+ xhr.open("GET", "https://raw.githubusercontent.com/okazu0208/myhtml/blob/main/index.py?value=" + txt.value, true);
  xhr.onreadystatechange = function() {
-     if (xhr.readyState == 4 && xhr.status == 200) {
-         document.getElementById("output").innerHTML = xhr.responseText;
-     }
+  if (xhr.readyState == 4 && xhr.status == 200) {
+   document.getElementById("output").innerHTML = xhr.responseText;
+  }
  };
  xhr.send();
 }

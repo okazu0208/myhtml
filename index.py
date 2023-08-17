@@ -1,4 +1,7 @@
 import pusher
+import cgi
+form = cgi.FieldStorage()
+value = form.getvalue("value")
 
 pusher_client = pusher.Pusher(
   app_id='1651847',
@@ -8,4 +11,4 @@ pusher_client = pusher.Pusher(
   ssl=True
 )
 
-pusher_client.trigger('my-channel', 'my-event', {'message': 'うんこブリブリ'})
+pusher_client.trigger('my-channel', 'my-event', {'message': value})
