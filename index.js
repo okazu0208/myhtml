@@ -7,7 +7,7 @@ channel.bind('my-event', function(data) {
  let text = document.getElementById('test').innerHTML;
  document.getElementById('test').innerHTML = JSON.stringify(data);
 });
-let elem = document.getElementById('elem');
+let elem = document.getElementById('bt');
 elem.onclick = function() {
     console.log("OK")
     var txt = document.getElementById("txt").value;
