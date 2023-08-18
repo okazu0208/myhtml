@@ -7,13 +7,12 @@ channel.bind('my-event', function(data) {
  let text = document.getElementById('test').innerHTML;
  document.getElementById('test').innerHTML = JSON.stringify(data);
 });
-function click() {
-    cosole.log("OK")
-    xhr.open( 'POST', 'http://{送信先URL}/post.php', false );
-    // POST 送信の場合は Content-Type は固定.
-    xhr.setRequestHeader( 'Content-Type', 'application/x-www-form-urlencoded' );
-    // 
-    xhr.send( 'hoge=piyo&moge=fuga' );
-    xhr.abort(); // 再利用する際にも abort() しないと再利用できないらしい.
-    
+let elem = document.getElementById('elem');
+elem.onclick = function() {
+    console.log("OK")
+    var txt = document.getElementById("txt").value;
+    var encodedTxt = encodeURIComponent(txt);
+    var xhr = new XMLHttpRequest();  // xhr の定義を追加
+    xhr.open("GET", "https://raw.githubusercontent.com/okazu0208/myhtml/main/index.py?value=" + encodedTxt, true);
+    xhr.send();   
 }
