@@ -10,9 +10,7 @@ channel.bind('my-event', function(data) {
 let elem = document.getElementById('bt');
 elem.onclick = function() {
     console.log("OK")
-    var txt = document.getElementById("txt").value;
-    var encodedTxt = encodeURIComponent(txt);
     var xhr = new XMLHttpRequest();  // xhr の定義を追加
-    xhr.open("GET", "https://raw.githubusercontent.com/okazu0208/myhtml/main/index.py?value=" + encodedTxt, true);
+    xhr.open("GET", "https://raw.githubusercontent.com/okazu0208/myhtml/main/index.php", true);
     xhr.send();   
 }
