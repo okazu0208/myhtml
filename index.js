@@ -9,8 +9,14 @@ channel.bind('my-event', function(data) {
 });
 let elem = document.getElementById('bt');
 elem.onclick = function() {
-    console.log("OK")
-    var xhr = new XMLHttpRequest();  // xhr の定義を追加
-    xhr.open("GET", "https://raw.githubusercontent.com/okazu0208/myhtml/main/index.php", true);
-    xhr.send();   
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", "path/to/your-php-script.php", true);
+    xhr.onreadystatechange = function() {
+    if (xhr.readyState == 4 && xhr.status == 200) {
+        var response = xhr.responseText;
+        // PHPスクリプトの実行結果を処理する
+        console.log(response);
+    }
+    };
+    xhr.send();
 }
