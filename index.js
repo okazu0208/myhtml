@@ -10,7 +10,7 @@ channel.bind('my-event', function(data) {
 let elem = document.getElementById('bt');
 elem.onclick = function() {
     var xhr = new XMLHttpRequest();
-    xhr.open("GET", "path/to/your-php-script.php", true);
+    xhr.open("GET", "https://raw.githubusercontent.com/okazu0208/myhtml/main/index.php", true);
     xhr.onreadystatechange = function() {
     if (xhr.readyState == 4 && xhr.status == 200) {
         var response = xhr.responseText;
