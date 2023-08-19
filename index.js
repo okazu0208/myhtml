@@ -9,5 +9,7 @@ ws.onmessage = function(evt){
 };
 let elem = document.getElementById('bt');
 elem.onclick = function() {
- ws.send(JSON.stringify({"to":"server@1471", "msg": txt.value}));
+ ws.onopen = function(evt){
+  ws.send(JSON.stringify({"to":"server@1471", "msg": txt.value}));
+ };
 }
