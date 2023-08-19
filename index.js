@@ -6,6 +6,9 @@ ws.onmessage = function(evt){
  var msg = JSON.parse(evt.data);
  let text = document.getElementById('test').innerHTML;
  document.getElementById('test').innerHTML = JSON.stringify(msg.msg);
+ function push(){
+    Push.create('うんこ');
+ }
 };
 let elem = document.getElementById('bt');
 elem.onclick = function() {
