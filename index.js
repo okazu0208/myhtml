@@ -4,7 +4,7 @@ ws.onopen = function(evt){
  ws.send('{"to":"server@1471", "msg":"test"}');
 };
 ws.onmessage = function(evt){
- var msg = evt.data;
+ var msg = JSON.parse(evt.data);
  let text = document.getElementById('test').innerHTML;
  document.getElementById('test').innerHTML = JSON.stringify(msg);
 };
