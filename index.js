@@ -6,7 +6,7 @@ ws.onopen = function(evt){
 ws.onmessage = function(evt){
  var msg = JSON.parse(evt.data);
  let text = document.getElementById('test').innerHTML;
- document.getElementById('test').innerHTML = JSON.stringify(msg);
+ document.getElementById('test').innerHTML = JSON.stringify(msg.msg);
 };
 let elem = document.getElementById('bt');
 elem.onclick = function() {
