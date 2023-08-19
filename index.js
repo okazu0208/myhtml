@@ -9,6 +9,7 @@ ws.onmessage = function(evt){
  console.log(msg)
  document.getElementById('test').innerHTML = msg.sID + '=' + msg.msg;
  document.cookie = msg.sID + '=' + msg.msg;
+ console.log(document.cookie.split('='))
 };
 let elem = document.getElementById('bt');
 elem.onclick = function() {
