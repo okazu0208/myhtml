@@ -4,7 +4,7 @@ console.log(n)
 if (n !== 1){
  for (var i = 0; i<n;  ++i) {
   var text = document.getElementById('test').innerHTML;
-  document.getElementById('test').innerHTML = text + '</br>' + document.cookie.split(';')[i];
+  document.getElementById('test').innerHTML = text + '</br>' + decodeURI(document.cookie.split(';')[i]);
  }
  n++;
 }
@@ -17,7 +17,7 @@ ws.onmessage = function(evt){
  n++;
  var text = document.getElementById('test').innerHTML;
  document.getElementById('test').innerHTML = text + '</br>' + n + '=' + msg.sID + '=' + msg.msg;
- document.cookie = n + '=' +  msg.sID + '=' + msg.msg;
+ document.cookie = n + '=' +  msg.sID + '=' + encodeURI(msg.msg);
  console.log(n);
  }
 };
