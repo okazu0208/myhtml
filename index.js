@@ -1,6 +1,5 @@
 var ws = new WebSocket('wss://cloud.achex.ca/sand');
 var n = document.cookie.split(';').length//くっきーの長さ取得
-const xhr = new XMLHttpRequest();
 console.log(n)
 if (n !== 1){//データが残っていたらその列を表示
  for (var i = 0; i<n;  ++i) {
@@ -9,20 +8,21 @@ if (n !== 1){//データが残っていたらその列を表示
  }
  n++;
 }
-xhr.onreadystatechange = function() {
-    if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
-        var msg = JSON.parse(xhr.responseText);
-        n++;
-        var text = document.getElementById('test').innerHTML;
-        document.getElementById('test').innerHTML = text + '</br>' + n + '=' + msg.txt;
-        document.cookie = n + '=' + encodeURI(msg.txt);
-        console.log(n);
-    }
-}
+ws.onopen = function(evt){//websoclet通信
+ ws.send('{"auth":"server@1471", "password":"Koneko2514"}');
+};
+ws.onmessage = function(evt){//イベント
+ var msg = JSON.parse(evt.data);
+ if (msg.auth !== "OK"){
+ n++;
+ var text = document.getElementById('test').innerHTML;
+ document.getElementById('test').innerHTML = text + '</br>' + n + '=' + msg.sID + '=' + msg.msg;
+ document.cookie = n + '=' +  msg.sID + '=' + encodeURI(msg.msg);
+ console.log(n);
+ }
+};
 let elem = document.getElementById('bt');
 elem.onclick = function() {//送信
- const data = {'key2': 'txt.value'};
- xhr.open('POST', 'https://okazu0208.github.io/myhtml/', true);
- xhr.send(JSON.stringify(data));
+ ws.send(JSON.stringify({"to":"server@1471", "msg": txt.value}));
  txt.value = '';
 };
